@@ -1,0 +1,4 @@
+*.out
+.gdb_history
+perf.*
+vgcore.*
