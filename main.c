@@ -247,6 +247,8 @@ void usage(char *argv[]) {
     printf("    %s -r <number_of_keys>\n", argv[0]);
     printf("4. Generate random inputs and show the result\n");
     printf("    %s -rs <number_of_keys>\n", argv[0]);
+    printf("5. Print this help\n");
+    printf("    %s -h\n", argv[0]);
 }
 
 int main(int argc, char *argv[]) {
@@ -257,7 +259,10 @@ int main(int argc, char *argv[]) {
     scan_fn sf = scan_fp;
     int print_in_random = 0;
     if (argc > 1) {
-        if (strcmp(argv[1], "-f") == 0) {
+        if (strcmp(argv[1], "-h") == 0) {
+            usage(argv);
+            return 0;
+        } else if (strcmp(argv[1], "-f") == 0) {
             if (argc < 3) {
                 printf("[Error] Expected filename after '-f'!\n");
                 usage(argv);
@@ -354,4 +359,5 @@ int main(int argc, char *argv[]) {
     free(q);
     free(r.e);
     free(r.root);
+    return 0;
 }
